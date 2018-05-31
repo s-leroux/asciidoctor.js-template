@@ -3,7 +3,7 @@
 const asciidoctor = require('asciidoctor.js')()
 require('../index.js')
 
-const debug = require('debug')('asciidoctor.js-pug:tests')
+const debug = require('debug')('asciidoctor.js-template:tests')
 const assert = require('chai').assert
 
 describe('asciidoctor', function () {
@@ -20,6 +20,10 @@ describe('asciidoctor', function () {
     const html = doc.convert({template_dirs: './test/templates'})
     debug(html)
   })
+
+  /*
+     COMMENTED OUT BECAUSE PUG SUPPORT WAS MOVED TO
+     IT'S OWN PROJECT
 
   it('should find templates for block elements', function () {
     const doc = asciidoctor.loadFile('./test/data/002-blocks.adoc', {template_dirs: './test/templates'})
@@ -52,6 +56,7 @@ describe('asciidoctor', function () {
 
     assert.include(html, '<IMG src="https://image.dir/source.png" alt="Atl Text Here"></IMG>')
   })
+  */
 
   it('should accept an array as `templates` parameter', function () {
     const doc = asciidoctor.loadFile('./test/data/005-img-uri.adoc', {
@@ -102,6 +107,10 @@ describe('asciidoctor', function () {
     assert.notInclude(html, 'IMAGE2')
     assert.include(html, 'IMAGE3')
   })
+
+  /*
+     COMMENTED OUT BECAUSE PUG SUPPORT WAS MOVED TO
+     IT'S OWN PROJECT
 
   describe('template_engines', function () {
     it('should accept custom extensions as glob patterns', function () {
@@ -170,7 +179,7 @@ describe('asciidoctor', function () {
       assert.include(html, '<IMG')
     })
   })
-
+  */
   describe('next()', function () {
     it('should be present in the context', function () {
       let passed = false // Prevent evergreen tests
